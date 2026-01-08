@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FitJourney - Fitness Progress Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #2ecc71;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #27ae60;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        form button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: #27ae60;
+        }
+
+        footer {
+            background-color: #2ecc71;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .chart {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .bar {
+            height: 20px;
+            background-color: #2ecc71;
+            margin: 8px 0;
+            color: white;
+            text-align: right;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>FitJourney</h1>
+    <p>Your Fitness Progress Tracker</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#tracker">Tracker</a>
+    <a href="#progress">Progress</a>
+</nav>
+
+<section id="about">
+    <div class="card">
+        <h2>About FitJourney</h2>
+        <p>
+            FitJourney is a health-focused fitness progress tracking system designed
+            to help users monitor workouts, body measurements, daily activities, and
+            wellness habits. It transforms raw fitness data into meaningful insights
+            using simple analytics and visual representations.
+        </p>
+    </div>
+</section>
+
+<section id="features">
+    <div class="card">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Workout and activity tracking</li>
+            <li>Body measurement logging</li>
+            <li>Progress visualization</li>
+            <li>Goal setting support</li>
+            <li>User-friendly interface</li>
+        </ul>
+    </div>
+</section>
+
+<section id="tracker">
+    <div class="card">
+        <h2>Fitness Data Entry</h2>
+        <form onsubmit="saveData(event)">
+            <label>Workout Name</label>
+            <input type="text" id="workout" placeholder="e.g., Running" required>
+
+            <label>Duration (minutes)</label>
+            <input type="number" id="duration" placeholder="e.g., 30" required>
+
+            <label>Calories Burned</label>
+            <input type="number" id="calories" placeholder="e.g., 200" required>
+
+            <button type="submit">Save Workout</button>
+        </form>
+
+        <p id="message" style="color: green; font-weight: bold;"></p>
+    </div>
+</section>
+
+<section id="progress">
+    <div class="card">
+        <h2>Progress Overview</h2>
+        <p>Sample weekly activity progress</p>
+
+        <div class="chart">
+            <div class="bar" style="width: 60%;">Mon</div>
+            <div class="bar" style="width: 75%;">Tue</div>
+            <div class="bar" style="width: 50%;">Wed</div>
+            <div class="bar" style="width: 80%;">Thu</div>
+            <div class="bar" style="width: 90%;">Fri</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p> 2026 FitJourney | Frontend Web Development Project</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    function saveData(event) {
+        event.preventDefault();
+
+        let workout = document.getElementById("workout").value;
+        let duration = document.getElementById("duration").value;
+        let calories = document.getElementById("calories").value;
+
+        document.getElementById("message").innerText =
+            "Workout saved successfully!";
+
+        // Clear form
+        document.getElementById("workout").value = "";
+        document.getElementById("duration").value = "";
+        document.getElementById("calories").value = "";
+    }
+</script>
+
+</body>
+</html>
